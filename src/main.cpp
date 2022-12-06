@@ -1,7 +1,7 @@
 #include <Serving/ServeCommandsMode.h>
 #include <iostream>
 #include <Serving/ServingPolicy.h>
-#include "LogAndStream.h"
+#include "LogStream.h"
 
 class Throw : public serving::Command{
 public:

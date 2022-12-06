@@ -2,7 +2,7 @@
 #include <Serving/Exception.h>
 #include <string>
 #include "SplitString.h"
-#include "LogAndStream.h"
+#include "LogStream.h"
 #include <Serving/ServingPolicy.h>
 #include "CommonCommands.h"
 #include <iostream>

@@ -1,7 +1,7 @@
 #include <Serving/ServingPolicy.h>
 #include <Serving/Exception.h>
 #include <iostream>
-#include <LogAndStream.h>
+#include <LogStream.h>
 
 namespace serving::policy {
     Policy::Policy(OnException onException) : onException(onException) {}

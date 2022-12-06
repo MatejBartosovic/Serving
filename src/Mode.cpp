@@ -1,4 +1,4 @@
-#include "LogAndStream.h"
+#include "LogStream.h"
 #include <Serving/Mode.h>
 
 namespace serving{
