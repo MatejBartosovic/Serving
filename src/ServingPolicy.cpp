@@ -1,7 +1,7 @@
 #include <Serving/ServingPolicy.h>
 #include <Serving/Exception.h>
-#include <Logger/Logger.h>
-
+#include <iostream>
+#include <LogAndStream.h>
 
 namespace serving::policy {
     Policy::Policy(OnException onException) : onException(onException) {}
@@ -13,8 +13,8 @@ namespace serving::policy {
             try {
                 std::invoke(Policy::onException, std::current_exception());
             } catch (const std::exception &e2) {
-                LOG_ERROR(__FILE__, "Exception occurred during exception handling: " + std::string(e2.what()));
-                LOG_ERROR(__FILE__, "Original exception: " + std::string(e.what()));
+                LOG_STREAM(std::cout, "Exception occurred during exception handling: " + std::string(e2.what()));
+                LOG_STREAM(std::cout, "Original exception: " + std::string(e.what()));
             }
             throw;
         }

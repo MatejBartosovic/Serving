@@ -4,6 +4,7 @@
 #include "SplitString.h"
 #include "LogAndStream.h"
 #include <CommonCommands.h>
+#include <iostream>
 
 namespace serving {
     ServeCommandsMode::ServeCommandsMode(const std::unordered_map<std::string, std::shared_ptr<Command>> &commands)
@@ -20,10 +21,10 @@ namespace serving {
             auto command = splited.begin();
             auto args = std::next(splited.begin(), 1);
             if(command == splited.end()){
-                LOG_STREAM_INFO(outStream, "Empty command");
+                LOG_STREAM(outStream, "Empty command");
                 continue;
             }
-            LOG_STREAM_INFO(outStream, "Executing command: " + line);
+            LOG_STREAM(outStream, "Executing command: " + line);
             std::shared_ptr<Command> c;
             try{
                 c = commands.at(*command);
@@ -32,10 +33,10 @@ namespace serving {
             }
             std::string ret = c->execute(args, splited.end());
             if (!ret.empty()){
-                LOG_STREAM_INFO(outStream, "Command finishhed with message: " + ret);
+                LOG_STREAM(outStream, "Command finishhed with message: " + ret);
             }
-            LOG_STREAM_INFO(outStream, "Command '" + line + "' finished successfully");
+            LOG_STREAM(outStream, "Command '" + line + "' finished successfully");
         }
-        LOG_INFO(__FILE__, "End of file. Terminating...");
+        LOG_STREAM(std::cout, "End of file. Terminating...");
     }
 }

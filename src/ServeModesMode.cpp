@@ -5,6 +5,7 @@
 #include "LogAndStream.h"
 #include <Serving/ServingPolicy.h>
 #include "CommonCommands.h"
+#include <iostream>
 
 
 namespace serving {
@@ -23,13 +24,13 @@ namespace serving {
             auto mode = splited.begin();
             try{
                 if(mode == splited.end()){
-                    LOG_STREAM_INFO(outStream, "Empty mode");
+                    LOG_STREAM(outStream, "Empty mode");
                     continue;
                 }
-                LOG_STREAM_INFO(outStream, "Entering mode: " + *mode);
+                LOG_STREAM(outStream, "Entering mode: " + *mode);
                 modes.at(*mode)->serve(inStream, outStream, policy);
             }catch (const StopException& e){
-                LOG_STREAM_INFO(outStream, "Exiting mode.");
+                LOG_STREAM(outStream, "Exiting mode.");
                 break;
             }
             catch (const std::out_of_range& e){
@@ -41,6 +42,6 @@ namespace serving {
                 }
             }
         }
-        LOG_INFO(__FILE__, "End of file. Terminating...");
+        LOG_STREAM(std::cout, "End of file. Terminating...");
     }
 }
