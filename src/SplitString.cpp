@@ -1,4 +1,4 @@
-#include <Utilities/SplitString.h>
+#include "SplitString.h"
 #include <sstream>
 
 namespace Serving {

@@ -12,6 +12,7 @@ endif()
 
 add_executable(${PROJECT_NAME}_unittest
         main.cpp
+        test_command.cpp
         )
 
 target_link_libraries(${PROJECT_NAME}_unittest

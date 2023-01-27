@@ -28,8 +28,8 @@ namespace serving {
     };
 
     template <typename T, size_t ArgCount, typename... Args>
-    std::shared_ptr<serving::Command> createCommand(Args... args){
-        return std::reinterpret_pointer_cast<serving::Command>(std::make_shared<EnforceArgCountCommand<T, ArgCount>>(std::forward<Args>(args)...));
+    std::shared_ptr<T> createCommand(Args... args){
+        return std::reinterpret_pointer_cast<T>(std::make_shared<EnforceArgCountCommand<T, ArgCount>>(std::forward<Args>(args)...));
     }
 }
 
