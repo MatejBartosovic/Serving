@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>Serving</name>
+    <version>0.1.0</version>
+    <description>Serving library</description>
+
+    <maintainer email="bartosovic@xeus.com">Matej Bartosovic</maintainer>
+    <license>MIT</license>
+    <author email="bartosovic@xeus.com">Matej Bartosovic</author>
+
+    <buildtool_depend>cmake</buildtool_depend>
+
+    <depend>xeus_utilities</depend>
+    <export>
+        <build_type>cmake</build_type>
+    </export>
+</package>
